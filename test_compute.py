@@ -1,5 +1,7 @@
 import pytest
 
+import numpy as np
+
 from compute import divide
 from compute import multiply
 
@@ -12,6 +14,10 @@ from compute import multiply
 def test_divide(a, b, x):
     res = divide(a, b)
     assert res == pytest.approx(x)
+
+
+def test_divide_zero():
+    assert np.isinf(divide(1, 0))
 
 
 def test_multiply():
